@@ -28,6 +28,10 @@ public class LivroBean {
 		return livro;
 	}
 	
+	public List<Livro> getLivros() {
+		return new DAO<Livro>(Livro.class).listaTodos();
+	}
+	
 	public List<Autor> getAutores(){
 		return new DAO<Autor>(Autor.class).listaTodos();
 	}
@@ -50,6 +54,7 @@ public class LivroBean {
 		}
 
 		new DAO<Livro>(Livro.class).adiciona(this.livro);
+		this.livro = new Livro();
 	}
 
 }
