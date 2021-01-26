@@ -18,8 +18,10 @@
 				</h:inputText>
 				<h:outputLabel value="ISBN:" for="isbn" />
 				<h:inputText id="isbn" value="#{livroBean.livro.isbn}" validator="#{livroBean.comecaComDigitoUm}"/>
-				<h:outputLabel value="Preço:" for="preco" />
-				<h:inputText id="preco" value="#{livroBean.livro.preco}" />
+				<h:outputLabel value="Preço:" for="preco"/>
+				<h:inputText id="preco" value="#{livroBean.livro.preco}">
+					<f:validateDoubleRange minimum="1.0" maximum="1000.0"/>
+				</h:inputText>
 				<h:outputLabel value="Data de Lançamento:" for="dataLancamento" />
 				<h:inputText id="dataLancamento" value="#{livroBean.livro.dataLancamento.time}">
 					<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
