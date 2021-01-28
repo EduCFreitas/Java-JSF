@@ -20,7 +20,9 @@
 					<f:ajax event="blur" render="messages"/>
 				</h:inputText>
 				<h:outputLabel value="ISBN:" for="isbn" />
-				<h:inputText id="isbn" value="#{livroBean.livro.isbn}" validator="#{livroBean.comecaComDigitoUm}"/>
+				<h:inputText id="isbn" value="#{livroBean.livro.isbn}" validator="#{livroBean.comecaComDigitoUm}">
+					<f:ajax event="keyup" render="messages"/>
+				</h:inputText>
 				<h:outputLabel value="Preço:" for="preco"/>
 				<h:inputText id="preco" value="#{livroBean.livro.preco}" validatorMessage="Valor deve estar entre R$1,00 e R$1000,00">
 					<f:validateDoubleRange minimum="1.0" maximum="1000.0"/>
