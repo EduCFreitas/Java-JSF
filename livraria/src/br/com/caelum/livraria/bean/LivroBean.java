@@ -73,6 +73,10 @@ public class LivroBean {
 		new DAO<Livro>(Livro.class).remove(livro);
 	}
 	
+	public void removerAutorDoLivro(Autor autor) {
+		this.livro.removeAutor(autor);
+	}
+	
 	public void carregar(Livro livro) {
 		System.out.println("Carregando livro");
 		this.livro = livro;

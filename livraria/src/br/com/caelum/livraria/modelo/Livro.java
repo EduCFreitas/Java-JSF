@@ -81,6 +81,10 @@ public class Livro {
 	public void setDataLancamento(Calendar dataLancamento) {
 		this.dataLancamento = dataLancamento;
 	}
+	
+	public void removeAutor(Autor autor) {
+		this.autores.remove(autor);
+	}
 
 	@Override
 	public int hashCode() {
@@ -106,7 +110,5 @@ public class Livro {
 			return false;
 		return true;
 	}
-	
-	
 
 }
