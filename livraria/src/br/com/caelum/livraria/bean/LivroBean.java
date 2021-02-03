@@ -21,6 +21,10 @@ public class LivroBean {
 	private Livro livro = new Livro();
 	private Integer autorId;
 	
+	public void setLivro(Livro livro) {
+		this.livro = livro;
+	}
+
 	public void setAutorId(Integer autorId) {
 		this.autorId = autorId;
 	}
@@ -77,10 +81,12 @@ public class LivroBean {
 		this.livro.removeAutor(autor);
 	}
 	
-	public void carregar(Livro livro) {
-		System.out.println("Carregando livro");
-		this.livro = livro;
-	}
+	//livro.xhtml:
+	//<h:commandLink value="Altera" action="#{livroBean.carregar(livro)}"/>
+//	public void carregar(Livro livro) {
+//		System.out.println("Carregando livro");
+//		this.livro = livro;
+//	}
 	
 	public RedirectView formAutor() {
 		System.out.println("Chamando o formulário do Autor");
