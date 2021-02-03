@@ -10,7 +10,6 @@ import javax.persistence.RollbackException;
 
 import br.com.caelum.livraria.dao.DAO;
 import br.com.caelum.livraria.modelo.Autor;
-import br.com.caelum.livraria.modelo.Livro;
 import br.com.caelum.livraria.util.RedirectView;
 
 @ManagedBean
