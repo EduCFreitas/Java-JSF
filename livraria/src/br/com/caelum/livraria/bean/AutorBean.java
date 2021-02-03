@@ -17,6 +17,19 @@ import br.com.caelum.livraria.util.RedirectView;
 public class AutorBean {
 
 	private Autor autor = new Autor();
+	private Integer autorId;
+
+	public Integer getAutorId() {
+		return autorId;
+	}
+
+	public void setAutorId(Integer autorId) {
+		this.autorId = autorId;
+	}
+	
+	public void carregarAutorPelaId() {
+		this.autor = new DAO<Autor>(Autor.class).buscaPorId(autorId);
+	}
 
 	public Autor getAutor() {
 		return autor;
@@ -47,7 +60,7 @@ public class AutorBean {
 			FacesContext.getCurrentInstance().addMessage("autor", 
 					new FacesMessage("Autor não pode ser excluído por estar associado a um livro."));
 		}
-		
+
 	}
 	
 	public void carregar(Autor autor) {
