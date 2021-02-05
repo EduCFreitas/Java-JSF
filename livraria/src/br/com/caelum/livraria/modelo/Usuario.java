@@ -7,14 +7,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Autor implements Serializable{
-
+public class Usuario implements Serializable{
+	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue
 	private Integer id;
-	private String nome;
+	private String senha;
 	private String email;
 
 	public Integer getId() {
@@ -24,13 +24,13 @@ public class Autor implements Serializable{
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	public String getNome() {
-		return nome;
+
+	public String getSenha() {
+		return senha;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	public String getEmail() {
