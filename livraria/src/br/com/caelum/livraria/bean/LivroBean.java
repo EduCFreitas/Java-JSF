@@ -18,9 +18,22 @@ import br.com.caelum.livraria.util.RedirectView;
 @ViewScoped
 public class LivroBean {
 
+	private Integer livroId;
 	private Livro livro = new Livro();
 	private Integer autorId;
 	
+	public Integer getLivroId() {
+		return livroId;
+	}
+
+	public void setLivroId(Integer livroId) {
+		this.livroId = livroId;
+	}
+	
+	public void carregaPelaId() {
+		this.livro = new DAO<Livro>(Livro.class).buscaPorId(this.livroId);
+	}
+
 	public void setLivro(Livro livro) {
 		this.livro = livro;
 	}
