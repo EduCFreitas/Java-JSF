@@ -24,9 +24,7 @@
 						<h:message for="email" id="messageEmail"/>
 						
 						<h:outputLabel value="Senha:" for="senha" />
-						<h:inputText id="senha" value="#{loginBean.usuario.senha}" required="true">
-							<f:passThroughAttribute name="type" value="password"/>
-						</h:inputText>
+						<h:inputSecret id="senha" value="#{loginBean.usuario.senha}" required="true"/>
 						<h:message for="senha" id="messageSenha"/>
 						
 						<h:commandButton value="Efetue Login" action="#{loginBean.efetuaLogin}" />
