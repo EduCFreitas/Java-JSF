@@ -27,7 +27,8 @@
 						<p:message for="email" id="messageEmail"/>
 						
 						<p:outputLabel value="Senha:" for="senha" />
-						<p:password id="senha" value="#{loginBean.usuario.senha}" required="true" feedback="true"/>
+						<p:password id="senha" value="#{loginBean.usuario.senha}" required="true" feedback="true"
+							promptLabel="Digite a sua senha" weakLabel="Fraca" goodLabel="Bom" strongLabel="Forte"/>
 						<p:message for="senha" id="messageSenha"/>
 						
 						<p:commandButton value="Efetue Login" action="#{loginBean.efetuaLogin}" update="@form" process="@form"/>
