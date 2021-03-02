@@ -49,10 +49,8 @@
 					<f:facet name="header">
 						Autores
 					</f:facet>
-					<p:commandLink styleClass="ui-icon ui-icon-pencil" style="float:left;margin-right:10px"
-								action="#{autorBean.carregar(autor)}" update=":autor"/>
-					<p:commandLink styleClass="ui-icon ui-icon-trash" style="float:left;margin-right:10px"
-								action="#{autorBean.remover(autor)}" update="@form"/>
+					<p:commandButton icon="fa fa-fw fa-edit" action="#{autorBean.carregar(autor)}" update=":autor"/>
+					<p:commandButton icon="fa fa-fw fa-remove" action="#{autorBean.remover(autor)}" update="@form"/>
 					#{autor.nome} - #{autor.email}
 				</p:dataList>
 			</h:form>
