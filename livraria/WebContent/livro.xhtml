@@ -74,12 +74,12 @@
 				<p:column headerText="ISBN" sortBy="#{livro.isbn}">
 					<h:outputText value="#{livro.isbn}"/>
 				</p:column>
-				<p:column headerText="Preço">
+				<p:column headerText="Preço" sortBy="#{livro.preco}">
 					<h:outputText value="#{livro.preco}">
 						<f:convertNumber type="currency" pattern="R$ #0.00" currencySymbol="R$" locale="pt_BR"/>
 					</h:outputText>
 				</p:column>
-				<p:column headerText="Data">
+				<p:column headerText="Data" sortBy="#{livro.dataLancamento.time}">
 					<h:outputText value="#{livro.dataLancamento.time}">
 						<f:convertDateTime pattern="dd/MM/yyyy HH:mm"/>
 					</h:outputText>
