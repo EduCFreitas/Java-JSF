@@ -43,31 +43,26 @@
 			</p:fieldset>
 			
 			<p:fieldset legend="Dados do Autor">
-				<p:outputLabel value="Selecione Autor: " for="autor"/>
-				<h:selectOneMenu value="#{livroBean.autorId}" id="autor">
-					<f:selectItems value="#{livroBean.autores}" var="autor" itemLabel="#{autor.nome}" itemValue="#{autor.id}"/>
-				</h:selectOneMenu>
-				<h:commandButton value="Gravar Autor" action="#{livroBean.gravarAutor}">
-					<f:ajax execute="autor" render="tabelaAutores"/>
-				</h:commandButton>
+				<p:panelGrid columns="4">
+					<p:outputLabel value="Selecione Autor: " for="autor"/>
+					<p:selectOneMenu value="#{livroBean.autorId}" id="autor">
+						<f:selectItems value="#{livroBean.autores}" var="autor" itemLabel="#{autor.nome}" itemValue="#{autor.id}"/>
+					</p:selectOneMenu>
+					<p:commandButton value="Gravar Autor" action="#{livroBean.gravarAutor}" process="@this autor" update="tabelaAutores"/>	
+					<p:commandLink value="Cadastrar novo autor" action="#{livroBean.formAutor}" immediate="true" update="@all"/>
+				</p:panelGrid>
 				
-				<br />
-				
-				<h:commandLink value="Cadastrar novo autor" action="#{livroBean.formAutor}" immediate="true"/>
-				
-				<h:dataTable value="#{livroBean.autoresDoLivro}" var="autor" id="tabelaAutores">
-					<h:column>
+				<p:dataTable value="#{livroBean.autoresDoLivro}" var="autor" id="tabelaAutores" emptyMessage="Nenhum autor">
+					<p:column>
 						<h:outputText value="#{autor.nome}"/>
-					</h:column>
-					<h:column>
-						<h:commandLink value="X" action="#{livroBean.removerAutorDoLivro(autor)}"/>
-					</h:column>
-				</h:dataTable>
+					</p:column>
+					<p:column>
+						<p:commandLink value="X" action="#{livroBean.removerAutorDoLivro(autor)}" update="tabelaAutores" process="@this"/>
+					</p:column>
+				</p:dataTable>
 			</p:fieldset>
 	
-			<h:commandButton value="Gravar" action="#{livroBean.gravar}" >
-				<f:ajax execute="@form" render="@form :formTabelaLivros:tabelaLivros"/>
-			</h:commandButton>
+			<p:commandButton value="Gravar" action="#{livroBean.gravar}" process="@form" update="@form :formTabelaLivros:tabelaLivros"/>
 		</h:form>
 		
 		<h:form id="formTabelaLivros">
