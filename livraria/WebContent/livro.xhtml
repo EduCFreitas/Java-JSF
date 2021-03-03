@@ -66,9 +66,9 @@
 		</h:form>
 		
 		<h:form id="formTabelaLivros">
-			<p:dataTable id="tabelaLivros" value="#{livroBean.livros}" var="livro">
+			<p:dataTable id="tabelaLivros" value="#{livroBean.livros}" var="livro" paginator="true" rows="5">
 				<f:facet name="header">Livros</f:facet>
-				<p:column headerText="Título" sortBy="#{livro.titulo}">
+				<p:column headerText="Título" sortBy="#{livro.titulo}" filterBy="#{livro.titulo}" filterMatchMode="startsWith">
 					<h:outputText value="#{livro.titulo}"/>
 				</p:column>
 				<p:column headerText="ISBN" sortBy="#{livro.isbn}">
