@@ -71,15 +71,15 @@
 				<p:column headerText="Título" sortBy="#{livro.titulo}" filterBy="#{livro.titulo}" filterMatchMode="startsWith">
 					<h:outputText value="#{livro.titulo}"/>
 				</p:column>
-				<p:column headerText="ISBN" sortBy="#{livro.isbn}">
+				<p:column headerText="ISBN" sortBy="#{livro.isbn}" filterBy="#{livro.isbn}" filterMatchMode="contains">
 					<h:outputText value="#{livro.isbn}"/>
 				</p:column>
-				<p:column headerText="Preço" sortBy="#{livro.preco}">
+				<p:column headerText="Preço" sortBy="#{livro.preco}" filterBy="#{livro.preco}" filterFunction="#{livroBean.precoEhMenor}">
 					<h:outputText value="#{livro.preco}">
 						<f:convertNumber type="currency" pattern="R$ #0.00" currencySymbol="R$" locale="pt_BR"/>
 					</h:outputText>
 				</p:column>
-				<p:column headerText="Data" sortBy="#{livro.dataLancamento.time}">
+				<p:column headerText="Data" sortBy="#{livro.dataLancamento.time}" filterBy="#{livro.dataLancamento.time}" filterMatchMode="contains">
 					<h:outputText value="#{livro.dataLancamento.time}">
 						<f:convertDateTime pattern="dd/MM/yyyy HH:mm"/>
 					</h:outputText>

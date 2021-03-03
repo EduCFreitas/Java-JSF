@@ -1,6 +1,7 @@
 package br.com.caelum.livraria.bean;
 
 import java.util.List;
+import java.util.Locale;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -81,6 +82,7 @@ public class LivroBean {
 			FacesContext.getCurrentInstance().addMessage("autor", new FacesMessage("Livro deve ter pelo menos um Autor."));
 			return;
 		}
+		
 		DAO<Livro> dao = new DAO<Livro>(Livro.class);
 		if(this.livro.getId() == null) {
 			dao.adiciona(this.livro);
@@ -117,6 +119,35 @@ public class LivroBean {
 		String valor = value.toString();
 		if(!valor.startsWith("1")) {
 			throw new ValidatorException(new FacesMessage("Deveria começar com 1"));
+		}
+	}
+	
+	public boolean precoEhMenor(Object valorColuna, Object filtroDigitado, Locale locale) {
+		//Tirando espaços do filtro
+		String textoDigitado = (filtroDigitado == null) ? null : filtroDigitado.toString().trim();
+		
+		System.out.println("Filtrando pelo " + textoDigitado.equals(""));
+		
+		//O filtro é nulo ou vazio?
+		if(textoDigitado == null || textoDigitado.equals("")) {
+			return true;
+		}
+		
+		//Elemento da tabela é nulo?
+		if(valorColuna == null) {
+			return false;
+		}
+		
+		try {
+			//Fazendo o parsing do filtro para converter para Double
+			Double precoDigitado = Double.valueOf(textoDigitado);
+			Double precoColuna = (Double) valorColuna;
+			
+			//Comparando os valores, compareTo devolve um valor negativo se o value é menor do que o filtro
+			return precoColuna.compareTo(precoDigitado) < 0;
+		}catch(NumberFormatException e) {
+			//Usuário não digitou um número
+			return false;
 		}
 	}
 
