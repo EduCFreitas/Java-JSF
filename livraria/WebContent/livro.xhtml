@@ -52,14 +52,14 @@
 					<p:commandLink value="Cadastrar novo autor" action="#{livroBean.formAutor}" immediate="true" update="@all"/>
 				</p:panelGrid>
 				
-				<p:dataTable value="#{livroBean.autoresDoLivro}" var="autor" id="tabelaAutores" emptyMessage="Nenhum autor">
+				<p:dataList value="#{livroBean.autoresDoLivro}" var="autor" id="tabelaAutores" emptyMessage="Nenhum autor">
 					<p:column>
 						<h:outputText value="#{autor.nome}"/>
 					</p:column>
 					<p:column>
-						<p:commandLink value="X" action="#{livroBean.removerAutorDoLivro(autor)}" update="tabelaAutores" process="@this"/>
+						<p:commandButton style="margin-left:5px" icon="fa fa-fw fa-remove" action="#{livroBean.removerAutorDoLivro(autor)}" update="tabelaAutores" process="@this"/>
 					</p:column>
-				</p:dataTable>
+				</p:dataList>
 			</p:fieldset>
 	
 			<p:commandButton value="Gravar" action="#{livroBean.gravar}" process="@form" update="@form :formTabelaLivros:tabelaLivros"/>
