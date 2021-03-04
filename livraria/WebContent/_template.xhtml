@@ -22,6 +22,32 @@
 					<p:separator/>
 					<p:menuitem value="Logout" action="#{loginBean.deslogar}" icon="fa fa-fw fa-sign-out"/>
 				</p:menuButton>
+				
+				<ui:remove>
+				<p:menu toggleable="true">
+    				<p:submenu label="Cadastros">
+        				<p:menuitem value="Livros" action="livro?faces-redirect=true"  icon="fa fa-fw fa-edit" />
+        				<p:menuitem value="Autor" action="autor?faces-redirect=true"  icon="fa fa-fw fa-edit" />
+    				</p:submenu>
+    				<p:submenu label="Outros">
+        				<p:menuitem value="Logout" action="#{loginBean.deslogar}" icon="fa fa-fw fa-sign-out"/>
+    				</p:submenu>
+				</p:menu>
+				
+				<p:menubar>
+    				<p:submenu label="Cadastros" icon="ui-icon-document">
+            			<p:menuitem value="Livros" action="livro?faces-redirect=true"  icon="fa fa-fw fa-edit" />
+                		 <p:separator />
+            			<p:menuitem value="Autor" action="autor?faces-redirect=true"  icon="fa fa-fw fa-edit"/>
+    				</p:submenu>
+    				 <p:submenu label="Outros">
+        				<p:menuitem value="Logout" action="#{loginBean.deslogar}" icon="fa fa-fw fa-sign-out"/>
+    				</p:submenu>
+    				<p:submenu label="Primefaces">
+        				<p:menuitem value="ShowCase" url="http://primefaces.org/showcase" icon="fa fa-fw fa-sign-out"/>
+    				</p:submenu>
+				</p:menubar>
+				</ui:remove>
 			</h:form>
 			
 			<h1><ui:insert name="titulo"></ui:insert></h1>
