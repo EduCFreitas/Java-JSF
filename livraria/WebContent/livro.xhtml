@@ -29,6 +29,11 @@
 						<f:validateLength maximum="40" />
 						<f:ajax event="blur" render="messages"/>
 					</p:inputText>
+					<p:outputLabel value="Gênero" for="genero"/>
+						<p:selectOneMenu value="#{livroBean.livro.genero}" id="genero">
+							<f:selectItem itemLabel="Selecione..." itemValue="#{null}"/>
+							<f:selectItems value="#{livroBean.generos}"/>
+						</p:selectOneMenu>
 					<p:outputLabel value="ISBN:" for="isbn" />
 					<p:inputMask id="isbn" value="#{livroBean.livro.isbn}" validator="#{livroBean.comecaComDigitoUm}" mask="999-9-99-999999-9">
 						<f:ajax event="keyup" render="messages"/>
@@ -66,10 +71,19 @@
 		</h:form>
 		
 		<h:form id="formTabelaLivros">
-			<p:dataTable id="tabelaLivros" value="#{livroBean.livroDataModel}" var="livro" paginator="true" rows="5" lazy="true">
+			<p:dataTable id="tabelaLivros" value="#{livroBean.livroDataModel}" var="livro" paginator="true" rows="5" lazy="true" widgetVar="tabelaLivros">
 				<f:facet name="header">Livros</f:facet>
 				<p:column headerText="Título" sortBy="#{livro.titulo}" filterBy="#{livro.titulo}" filterMatchMode="startsWith">
 					<h:outputText value="#{livro.titulo}"/>
+				</p:column>
+				<p:column headerText="Gênero" sortBy="#{livro.genero}" filterBy="#{livro.genero}" filterMatchMode="startsWith">
+					<f:facet name="filter">
+						<p:selectOneMenu onchange="PF('tabelaLivros').filter()">
+							<f:selectItem itemLabel="Selecione..." itemValue="#{null}" noSelectionOption="true"/>
+							<f:selectItems value="#{livroBean.generos}"/>
+						</p:selectOneMenu>
+					</f:facet>
+					<h:outputText value="#{livro.genero}"/>
 				</p:column>
 				<p:column headerText="ISBN" sortBy="#{livro.isbn}" filterBy="#{livro.isbn}" filterMatchMode="contains">
 					<h:outputText value="#{livro.isbn}"/>

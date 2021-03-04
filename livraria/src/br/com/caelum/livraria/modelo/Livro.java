@@ -30,6 +30,8 @@ public class Livro {
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Autor> autores = new ArrayList<Autor>();
+	
+	private String genero;
 
 	public List<Autor> getAutores() {
 		return autores;
@@ -82,6 +84,14 @@ public class Livro {
 		this.dataLancamento = dataLancamento;
 	}
 	
+	public String getGenero() {
+		return genero;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
 	public void removeAutor(Autor autor) {
 		this.autores.remove(autor);
 	}
