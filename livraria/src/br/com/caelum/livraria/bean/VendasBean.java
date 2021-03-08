@@ -7,6 +7,8 @@ import java.util.Random;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import org.primefaces.model.chart.Axis;
+import org.primefaces.model.chart.AxisType;
 import org.primefaces.model.chart.BarChartModel;
 import org.primefaces.model.chart.ChartSeries;
 
@@ -40,6 +42,17 @@ public class VendasBean {
 		
 		model.addSeries(vendaSerie);
 		model.addSeries(vendaSerie2015);
+		
+		model.setTitle("Vendas");
+		model.setLegendPosition("ne"); //Nordeste
+		
+		//Setando o eixo X do gráfico
+		Axis xAxis = model.getAxis(AxisType.X);
+		xAxis.setLabel("Título");
+		
+		//Setando o eixo Y do gráfico
+		Axis yAxis = model.getAxis(AxisType.Y);
+		yAxis.setLabel("Quantidade");
 		
 		return model;
 	}
