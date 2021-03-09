@@ -17,6 +17,8 @@ import br.com.caelum.livraria.util.RedirectView;
 @ViewScoped
 public class AutorBean implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+	
 	private Autor autor = new Autor();
 	private Integer autorId;
 
