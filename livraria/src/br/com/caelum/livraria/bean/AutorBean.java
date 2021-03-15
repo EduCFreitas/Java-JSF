@@ -11,7 +11,6 @@ import javax.inject.Named;
 import javax.persistence.RollbackException;
 
 import br.com.caelum.livraria.dao.AutorDAO;
-import br.com.caelum.livraria.dao.DAO;
 import br.com.caelum.livraria.modelo.Autor;
 import br.com.caelum.livraria.util.RedirectView;
 
