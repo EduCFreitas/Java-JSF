@@ -136,10 +136,10 @@ public class LivroBean implements Serializable {
 	
 	//livro.xhtml:
 	//<h:commandLink value="Altera" action="#{livroBean.carregar(livro)}"/>
-//	public void carregar(Livro livro) {
-//		System.out.println("Carregando livro");
-//		this.livro = livro;
-//	}
+	public void carregar(Livro livro) {
+		System.out.println("Carregando livro");
+		this.livro = livroDao.buscaPorId(livro.getId());
+	}
 	
 	public RedirectView formAutor() {
 		System.out.println("Chamando o formulário do Autor");

@@ -98,10 +98,8 @@
 						<f:convertDateTime pattern="dd/MM/yyyy HH:mm"/>
 					</h:outputText>
 				</p:column>
-				<p:column headerText="Alterar">
-					<h:commandLink value="Altera">
-						<f:setPropertyActionListener value="#{livro}" target="#{livroBean.livro}"/>
-					</h:commandLink>
+				<p:column headerText="Alterarr">
+					<h:commandLink value="Altera" action="#{livroBean.carregar(livro)}"/>
 				</p:column>
 				<p:column headerText="Remover">
 					<h:commandLink value="Remove" action="#{livroBean.remover(livro)}"/>
