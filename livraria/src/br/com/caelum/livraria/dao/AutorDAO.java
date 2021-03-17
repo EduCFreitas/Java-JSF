@@ -36,11 +36,11 @@ public class AutorDAO implements Serializable{
 	}
 
 	public void atualiza(Autor autor) {
-		this.atualiza(autor);
+		this.dao.atualiza(autor);
 	}
 
 	public void remove(Autor autor) {
-		this.remove(autor);
+		this.dao.remove(autor);
 	}
 
 }
