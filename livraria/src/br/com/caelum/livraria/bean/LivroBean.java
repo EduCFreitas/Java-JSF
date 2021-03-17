@@ -43,6 +43,9 @@ public class LivroBean implements Serializable {
 	@Inject
 	AutorDAO autorDao;
 	
+	@Inject
+	FacesContext context;
+	
 	public Integer getLivroId() {
 		return livroId;
 	}
@@ -106,7 +109,7 @@ public class LivroBean implements Serializable {
 
 		if (livro.getAutores().isEmpty()) {
 			//throw new RuntimeException("Livro deve ter pelo menos um Autor.");
-			FacesContext.getCurrentInstance().addMessage("autor", new FacesMessage("Livro deve ter pelo menos um Autor."));
+			context.addMessage("autor", new FacesMessage("Livro deve ter pelo menos um Autor."));
 			return;
 		}
 		
